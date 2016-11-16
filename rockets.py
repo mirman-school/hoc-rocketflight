@@ -20,7 +20,7 @@ class Rocket:
         )
 
 rockets = {
-    "saturnv": Rocket("Saturn V",2970000,165,41000),
-    "falcon9": Rocket("Falcon 9",549000,160,7570),
-    "atlas": Rocket("Atlas",120000,300,1300)
+    "saturnv": Rocket("Saturn V",2970000,165,41000000),
+    "falcon9": Rocket("Falcon 9",549000,160,7570000),
+    "atlas": Rocket("Atlas",120000,300,1300000)
 }
