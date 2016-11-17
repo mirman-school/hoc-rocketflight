@@ -1,8 +1,6 @@
 import math
 from rockets import *
 from visualizer import visualize
-# for r in rockets:
-#     print(rockets[r])
 
 '''
 Ticks are "seconds" of mission time. Each tick is a tuple of (Vector Position, Vector velocity)
@@ -70,13 +68,21 @@ def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
 
     return ticks
 
-# Program your flight here!
-rocket = rockets["saturnv"]
-flight_time = 1000
-flight_plan = {
-    1: "on"
-}
-flight = fly(rocket, flight_time, flight_plan)
+# Uncomment these lines to print your rockets!
+# for r in rockets:
+#     print(rockets[r])
 
-#This line makes the graph appear
-visualize(flight)
+# Program your flight here!
+# ---
+
+# rocket = rockets["saturnv"]
+# flight_time = 1000
+# flight_plan = {
+#     1: "on"
+# }
+# flight = fly(rocket, flight_time, flight_plan)
+
+# ---
+
+# This line makes the graph appear
+# visualize(flight)

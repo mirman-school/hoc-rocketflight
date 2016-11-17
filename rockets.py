@@ -35,7 +35,7 @@ class Rocket:
         except KeyError:
             self.engine_on = self.total_burn < self.burn_time
 
-
+# Notice how each entry has a key in quotes, then a Rocket value
 rockets = {
     "saturnv": Rocket("Saturn V",2970000,165,41000000),
     "falcon9": Rocket("Falcon 9",549000,160,7570000),
