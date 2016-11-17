@@ -11,6 +11,7 @@ class Rocket:
         self.burn_time = burn_time
         self.thrust = thrust
         self.total_burn = 0
+        self.engine_on = False
 
     def __str__(self):
         return "{}:\n\tMass: {} kg\n\tBurn Time: {} s\n\tThrust: {} N".format(
@@ -19,6 +20,21 @@ class Rocket:
             self.burn_time,
             self.thrust
         )
+
+    def set_engine_state(self, elapsed, flight_plan):
+        '''
+        Determines whether the rocket engine should be burning based on
+        flight plan commands and if there's fuel left.
+        '''
+        try:
+            plan_key = flight_plan[elapsed]
+            if plan_key == "on":
+                self.engine_on = self.total_burn < self.burn_time
+            else:
+                self.engine_on = False
+        except KeyError:
+            self.engine_on = self.total_burn < self.burn_time
+
 
 rockets = {
     "saturnv": Rocket("Saturn V",2970000,165,41000000),

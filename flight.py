@@ -7,7 +7,7 @@ from visualizer import visualize
 '''
 Ticks are "seconds" of mission time. Each tick is a tuple of (Vector Position, Vector velocity)
 '''
-
+GRAVITY = -10
 
 class Vector:
     '''
@@ -31,14 +31,18 @@ class Tick:
         self.velocity = v
         self.position = p
 
-def tick(r, last_tick, elapsed_time):
+
+def tick(r, last_tick, elapsed, flight_plan):
     '''
     Perform the Tsiolkovsky equation every "tick" for the flight.
     '''
-    if elapsed_time < r.burn_time:
-        delta_v = Vector(0,r.thrust/r.mass)
+    global GRAVITY
+    r.set_engine_state(elapsed, flight_plan) # Look in the Rocket class for set_engine_state()
+    if r.engine_on:
+        delta_v = Vector(0,r.thrust/(r.mass - (r.total_burn*10)))
+        r.total_burn += 1
     else:
-        delta_v = Vector(0,-10)
+        delta_v = Vector(0,GRAVITY)
     v = last_tick.velocity
     pos = last_tick.position
     v += delta_v
@@ -50,20 +54,29 @@ def tick(r, last_tick, elapsed_time):
         v.y = 0
     return Tick(v, pos)
 
-def fly(rocket,mission_time):
+def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
     '''
     Simulates the flight of a given rocket
     '''
     ticks = [Tick()]
     for i in range(mission_time):
-        ticks.append(tick(rocket, ticks[-1],len(ticks)))
+        next_tick = tick(
+                        rocket,
+                        ticks[-1],
+                        len(ticks),
+                        flight_plan
+                        )
+        ticks.append(next_tick)
 
     return ticks
 
 # Program your flight here!
 rocket = rockets["saturnv"]
 flight_time = 1000
-flight = fly(rocket,flight_time)
+flight_plan = {
+    1: "on"
+}
+flight = fly(rocket, flight_time, flight_plan)
 
 #This line makes the graph appear
 visualize(flight)
