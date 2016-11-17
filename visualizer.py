@@ -1,7 +1,6 @@
 from matplotlib import pyplot as plt
 
 def visualize(flight):
-    plt.figure()
     altitude = [t.position.y for t in flight]
     velocity = [t.velocity.y for t in flight]
     time = list(range(len(flight)))
