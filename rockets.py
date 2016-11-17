@@ -10,6 +10,7 @@ class Rocket:
         self.mass = mass
         self.burn_time = burn_time
         self.thrust = thrust
+        self.total_burn = 0
 
     def __str__(self):
         return "{}:\n\tMass: {} kg\n\tBurn Time: {} s\n\tThrust: {} N".format(
