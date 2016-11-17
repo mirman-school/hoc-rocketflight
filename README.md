@@ -27,7 +27,7 @@ But a class is just an idea of a thing, not an actual thing. Actual things, or _
 
 You'll see two other functions inside of the `Rocket` class. One of them is just a fun way to print out our rockets; the other we'll use in our flight simulation.
 
-### flight.py
+### `flight.py`
 This is where the action is. You'll notice that we start by `import`ing information from the other files. Then we have another `Class` definition: `Vector`. This is just a helper to usefully contain the `x` and `y` values for the position and velocity of our rocket during flight. The `Tick` class represents a moment in time. Our simulation will be made of a collection of `Tick`s. How many? You'll decide that later.
 
 Then two functions: `tick()` and `fly()`. `tick()` advances the simulation by one unit of time (in our case, a second), while `fly()` runs a flight simulation for a given rocket with a given flight plan for a specific amount of time.
@@ -62,9 +62,9 @@ To add a rocket to the menu, you'd create a new `Rocket()` object and attach it 
 
 Remember your units: mass is in `kg`, burn time is in `s`, and thrust is in `N`.
 
-Then in `flight.py`, I would type:
+Then in `flight.py`, you would type:
 
-    rocket = rockets["new"].
+    rocket = rockets["new"]
 
 You could also define the rocket without naming it, like so:
 
