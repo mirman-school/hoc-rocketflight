@@ -61,7 +61,7 @@ def fly(rocket,mission_time):
     return ticks
 
 # Program your flight here!
-rocket = rocks["saturnv"]
+rocket = rockets["saturnv"]
 flight_time = 1000
 flight = fly(rocket,flight_time)
 
