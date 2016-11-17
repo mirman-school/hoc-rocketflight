@@ -75,14 +75,14 @@ def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
 # Program your flight here!
 # ---
 
-# rocket = rockets["saturnv"]
-# flight_time = 1000
-# flight_plan = {
-#     1: "on"
-# }
-# flight = fly(rocket, flight_time, flight_plan)
+rocket = rockets["saturnv"]
+flight_time = 1000
+flight_plan = {
+    1: "on"
+}
+flight = fly(rocket, flight_time, flight_plan)
 
 # ---
 
 # This line makes the graph appear
-# visualize(flight)
+visualize(flight)
