@@ -52,7 +52,7 @@ def tick(r, last_tick, elapsed, flight_plan):
     #     v.y = 0
     return Tick(v, pos)
 
-def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
+def fly(rocket, mission_time, flight_plan):
     '''
     Simulates the flight of a given rocket
     '''
@@ -82,7 +82,9 @@ def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
 rocket = rockets["saturnv"]
 flight_time = 1000
 flight_plan = {
-    1: "on"
+    1: "on",
+    30: "off",
+    50: "on"
 }
 flight = fly(rocket, flight_time, flight_plan)
 
