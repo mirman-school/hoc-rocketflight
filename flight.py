@@ -37,7 +37,7 @@ def tick(r, last_tick, elapsed, flight_plan):
     global GRAVITY
     r.set_engine_state(elapsed, flight_plan) # Look in the Rocket class for set_engine_state()
     if r.engine_on:
-        delta_v = Vector(0,r.thrust/(r.mass - (r.total_burn*10)))
+        delta_v = Vector(0,(r.thrust/(r.mass - (r.total_burn)) + GRAVITY))
         r.total_burn += 1
     else:
         delta_v = Vector(0,GRAVITY)
@@ -82,12 +82,7 @@ def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
 rocket = rockets["saturnv"]
 flight_time = 1000
 flight_plan = {
-    1: "on",
-    50: "off",
-    150: "on",
-    175: "off",
-    300: "on",
-    325: "off"
+    1: "on"
 }
 flight = fly(rocket, flight_time, flight_plan)
 
