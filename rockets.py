@@ -33,7 +33,7 @@ class Rocket:
             else:
                 self.engine_on = False
         except KeyError:
-            self.engine_on = self.total_burn < self.burn_time
+            self.engine_on = self.total_burn < self.burn_time and self.engine_on
 
 # Notice how each entry has a key in quotes, then a Rocket value
 rockets = {

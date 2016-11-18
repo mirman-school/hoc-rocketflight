@@ -47,20 +47,24 @@ def tick(r, last_tick, elapsed, flight_plan):
     pos += v
 
     # Don't go underground
-    if pos.y <= 0:
-        pos.y = 0
-        v.y = 0
+    # if pos.y <= 0:
+    #     pos.y = 0
+    #     v.y = 0
     return Tick(v, pos)
 
 def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
     '''
     Simulates the flight of a given rocket
     '''
-    ticks = [Tick()]
+    ticks = [Tick(p=Vector(0,1))]
     for i in range(mission_time):
+        last_tick = ticks[-1]
+        # Stop if we hit the ground last tick
+        if last_tick.position.y <= 0:
+            break
         next_tick = tick(
                         rocket,
-                        ticks[-1],
+                        last_tick,
                         len(ticks),
                         flight_plan
                         )
@@ -78,7 +82,12 @@ def fly(rocket, mission_time, cutoff_time=None, reignite_time=None):
 rocket = rockets["saturnv"]
 flight_time = 1000
 flight_plan = {
-    1: "on"
+    1: "on",
+    50: "off",
+    150: "on",
+    175: "off",
+    300: "on",
+    325: "off"
 }
 flight = fly(rocket, flight_time, flight_plan)
 
