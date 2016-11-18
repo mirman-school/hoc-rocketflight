@@ -86,3 +86,16 @@ Our rockets can turn their engines on and off. To do this, we tell the rocket at
 Would start the engines burning at `tick` 1 (the start of the simulation). Then at `tick` 50, the engines turn off, letting gravity take over. We power back up at `tick` 100, until 110, when we power off for the last time.
 
 Changing these values, along with different rockets, will alter your flight profile. See if you can make soft landings from multiple altitudes with multiple rockets.
+
+## Running your code
+To run the Python code, you will use Terminal. Open it up, and use the `cd` command to navigate to this folder. Terminal opens one level above your `Downloads/` folder, so if you downloaded/unzipped this folder in your Downloads, enter:
+
+    cd Downloads/hoc-rocketflight-master
+
+If it's on your Desktop, same thing, but `Desktop` in lieu of `Downloads`.
+
+From there, to run and re-run your code, enter:
+
+    python3 flight.py
+
+**Make sure Python and Pylab are installed before running code!**
